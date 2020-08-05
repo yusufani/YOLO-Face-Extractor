@@ -80,7 +80,7 @@ $ git clone https://github.com/sthanhng/yoloface
 ```bash
 $ python yoloface.py --image samples/outside_000001.jpg --output-dir outputs/
 ```
-```
+
 ## Sample input
 
 ![Imgur](assets/input.jpg)
