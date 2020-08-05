@@ -1,6 +1,19 @@
 # YOLOFace
 
-# Deep learning based Face detection using the YOLOv3 algorithm
+
+
+
+This code is taken from the repo here(https://github.com/sthanhng/yoloface). I just change  codes for making face extractor.
+
+
+
+
+
+
+
+
+
+
 
 
 ## Getting started
@@ -67,20 +80,13 @@ $ git clone https://github.com/sthanhng/yoloface
 ```bash
 $ python yoloface.py --image samples/outside_000001.jpg --output-dir outputs/
 ```
-
->**video input**
-```bash
-$ python yoloface.py --video samples/subway.mp4 --output-dir outputs/
 ```
-
->**webcam**
-```bash
-$ python yoloface.py --src 1 --output-dir outputs/
-```
-
+## Sample input
+![Imgur](assets/input.jpg)
 ## Sample outputs
+![Imgur](assets/output.jpg)
 
-![Imgur](assets/outside_000001_yoloface.jpg)
+Also code support multiple face extraction
 
 ## License
 
