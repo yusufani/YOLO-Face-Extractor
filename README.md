@@ -3,7 +3,7 @@
 
 
 
-This code is taken from the repo here(https://github.com/sthanhng/yoloface). I just change  codes for making face extractor.
+This code is taken from the repo [here](https://github.com/sthanhng/yoloface). I just change  codes for making face extractor.
 
 
 
