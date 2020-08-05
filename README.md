@@ -82,8 +82,11 @@ $ python yoloface.py --image samples/outside_000001.jpg --output-dir outputs/
 ```
 ```
 ## Sample input
+
 ![Imgur](assets/input.jpg)
+
 ## Sample outputs
+
 ![Imgur](assets/output.jpg)
 
 Also code support multiple face extraction
