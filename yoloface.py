@@ -63,33 +63,35 @@ else:
 net = cv2.dnn.readNetFromDarknet(args.model_cfg, args.model_weights)
 net.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
 net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
-n_error = 0
+
 
 def check_file(file_name):
-    if file_name.split(".")[-1] in ["png","jpg","jpeg"]:
+    if file_name.split(".")[-1] in ["png", "jpg", "jpeg"]:
         return True
     else:
-        print("File :" , file, "NOT SUPPORTED")
+        print("File :", file_name, "NOT SUPPORTED")
         return False
 
+
 def _main():
+    n_error = 0
     if os.path.isdir(args.image):
         for file in tqdm(os.listdir(args.image)):
             if check_file(file):
-                find_faces(os.path.join(args.image,file))
+                n_error = find_faces(os.path.join(args.image, file), n_error)
     else:
         if check_file(args.image):
-            find_faces(arg.image)
-
+            n_error = find_faces(arg.image,n_error)
+    
     print("Number of error " , n_error)
-def find_faces(file_name):
+
+def find_faces(file_name,n_error):
     cap = cv2.VideoCapture(file_name)
     has_frame, frame = cap.read()
 
     # Create a 4D blob from a frame.
     try:
-        blob = cv2.dnn.blobFromImage(frame, 1 / 255, (IMG_WIDTH, IMG_HEIGHT),
-                                     [0, 0, 0], 1, crop=False)
+        blob = cv2.dnn.blobFromImage(frame, 1 / 255, (IMG_WIDTH, IMG_HEIGHT), [0, 0, 0], 1, crop=False)
         # Sets the input to the network
         net.setInput(blob)
 
@@ -101,7 +103,8 @@ def find_faces(file_name):
     except :
         print("hata")
         n_error+=1
-
+        return n_error
+    return n_error
 
 if __name__ == '__main__':
     _main()
